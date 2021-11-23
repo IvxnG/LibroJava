@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = paginasTotales;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getAutor() {
@@ -48,19 +50,19 @@ public class Libro {
     
     public void imprimirDetalles() {
         if (numeroReferencia.length() == 0 ){
-            System.out.println("Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia:ZZZ ");
+            System.out.println("Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia:ZZZ " + " / " + "Veces prestado: " + vecesPrestado);
         }
         else {
-            System.out.println("Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia: " + numeroReferencia);    
+            System.out.println("Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia: " + numeroReferencia + " / " + "Veces prestado: " + vecesPrestado);    
         }
     }
     
     public String getDetalles() {  
         if(numeroReferencia.length() == 0 ){
-            return "Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia:ZZZ ";   
+            return "Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia:ZZZ " + " / " + "Veces prestado: " + vecesPrestado;   
         }
         else {
-            return "Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia: " + numeroReferencia;
+            return "Título: "+ titulo + " / " + "Autor: " + autor + " / "+ "Páginas: " + numeroPaginas + " / " + "Numero de Referencia: " + numeroReferencia + " / " + "Veces prestado: " + vecesPrestado;
         }
     }
     
@@ -77,5 +79,11 @@ public class Libro {
         }
     }
     
+    public void prestar() {
+        vecesPrestado = vecesPrestado + 1;    
+    }
     
+    public int getVecesPrestado() {
+        return vecesPrestado;
+    }
 }
